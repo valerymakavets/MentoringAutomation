@@ -40,10 +40,10 @@ public class DivisionTest extends BaseTest {
         float b = (float) 3.5;
         float r = a / b;
         float divisionResult = (float) calculator.div(a, b);
-        Assert.assertEquals(divisionResult, r, "Calculation with random valid values values is incorrect");
+        Assert.assertEquals(divisionResult, r, "Calculation with random valid float values is incorrect");
     }
 
-    @Test(expectedExceptions = {NumberFormatException.class}, expectedExceptionsMessageRegExp = "Attempt to divide by zero")
+    @Test(expectedExceptions = {NumberFormatException.class}, expectedExceptionsMessageRegExp = "Attempt to divide by zero") //todo: Ask, is it correct test
     public void divisionByZeroLong() throws Exception {
         long a = new Random().nextLong();
         long r = calculator.div(a, 0L);
@@ -51,11 +51,18 @@ public class DivisionTest extends BaseTest {
         throw new Exception();
     }
 
-    @DataProvider(name = "asd")
-    public Object[][] dataProviderForDivision() {
-        return new Object[][]{
-                {4, 2, 2},
-                {-10, -5, 2}
-        };
+    /*@Test todo "ask about this check"
+    public void divisionByZeroDouble(){
+        double a = new Random().nextDouble();
+        double r = calculator.div(a,0D);
+        Assert.assertEquals(r,0);
     }
+
+    @Test(expectedExceptions = {NumberFormatException.class}, expectedExceptionsMessageRegExp = "Attempt to divide by zero")
+    public void divisionByZeroDouble2() throws Exception {
+        double a = new Random().nextDouble();
+        double r = calculator.div(a, 0D);
+        Assert.assertEquals(r, 0);
+        throw new Exception();
+    }*/
 }

@@ -43,15 +43,9 @@ public class DivisionTest extends BaseTest {
         Assert.assertEquals(divisionResult, 1, "Calculation with random valid float values is incorrect");
     }
 
-    @Test(expectedExceptions = NumberFormatException.class)
-    public void divisionByZeroLongCheckExceptionMethod() {
-        long a = new Random().nextLong();
-        calculator.div(a, 0L);
-    }
-
     @Test(expectedExceptions = NumberFormatException.class, expectedExceptionsMessageRegExp = "Attempt to divide by zero")
     public void divisionByZeroLongCheckExceptionText() {
-        long a = new Random().nextLong();
+        long a = Long.MAX_VALUE;
         calculator.div(a, 0L);
     }
 

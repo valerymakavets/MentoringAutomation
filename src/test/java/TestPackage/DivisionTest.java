@@ -5,12 +5,15 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
+import static jdk.nashorn.internal.objects.Global.Infinity;
+import static jdk.nashorn.internal.objects.Global.NaN;
+
 public class DivisionTest extends BaseTest {
 
     @Test
     public void divisionRandomLongValues() {
-        long a = new Random().nextLong();
-        long b = new Random().nextLong();
+        long a = 9223372036854775807L;
+        long b = -9223372036854775808L;
         long r = a / b;
         long divisionResult = calculator.div(a, b);
         Assert.assertEquals(divisionResult, r, "Calculation with random valid long values is incorrect");
@@ -18,8 +21,8 @@ public class DivisionTest extends BaseTest {
 
     @Test
     public void divisionRandomDoubleValues() {
-        double a = new Random().nextDouble();
-        double b = new Random().nextDouble();
+        double a = Double.MAX_VALUE;
+        double b = Double.MIN_VALUE;
         double r = a / b;
         double divisionResult = calculator.div(a, b);
         Assert.assertEquals(divisionResult, r, "Calculation with random valid double values is incorrect");
@@ -27,20 +30,17 @@ public class DivisionTest extends BaseTest {
 
     @Test
     public void divisionRandomIntValues() {
-        int a = new Random().nextInt();
-        int b = new Random().nextInt();
-        int r = a / b;
-        double divisionResult = calculator.div(a, b);
-        Assert.assertEquals(divisionResult, r, "Calculation with random valid int values is incorrect");
+        int a = 10;
+        double divisionResult = calculator.div(a, a);
+        Assert.assertEquals(divisionResult, 1, "Calculation with random valid int values is incorrect");
     }
 
     @Test
     public void divisionRandomFloatValues() {
         float a = (float) 3.5;
         float b = (float) 3.5;
-        float r = a / b;
         float divisionResult = (float) calculator.div(a, b);
-        Assert.assertEquals(divisionResult, r, "Calculation with random valid float values is incorrect");
+        Assert.assertEquals(divisionResult, 1, "Calculation with random valid float values is incorrect");
     }
 
     @Test(expectedExceptions = NumberFormatException.class)
@@ -56,12 +56,20 @@ public class DivisionTest extends BaseTest {
     }
 
 
-    /*@Test todo "ask about this check"
+    /*@Test
     public void divisionByZeroDouble(){
-        double a = new Random().nextDouble();
+        double a = Double.MAX_VALUE;
         double r = calculator.div(a,0D);
-        Assert.assertEquals(r,0);
+        Assert.assertEquals(r,Infinity);
     }
+
+    @Test
+    public void divisionZeroByZeroDotZeroDouble(){
+        double r = calculator.div(0,0.0D);
+        Assert.assertEquals(r,NaN);
+        System.out.println(r);
+    }
+
 
     @Test(expectedExceptions = {NumberFormatException.class}, expectedExceptionsMessageRegExp = "Attempt to divide by zero")
     public void divisionByZeroDouble2() throws Exception {

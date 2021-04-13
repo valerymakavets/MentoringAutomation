@@ -1,8 +1,8 @@
 package TestPackage;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import java.util.Random;
 
 public class DivisionTest extends BaseTest {

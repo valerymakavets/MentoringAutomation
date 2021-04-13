@@ -43,13 +43,18 @@ public class DivisionTest extends BaseTest {
         Assert.assertEquals(divisionResult, r, "Calculation with random valid float values is incorrect");
     }
 
-    @Test(expectedExceptions = {NumberFormatException.class}, expectedExceptionsMessageRegExp = "Attempt to divide by zero") //todo: Ask, is it correct test
-    public void divisionByZeroLong() throws Exception {
+    @Test(expectedExceptions = NumberFormatException.class)
+    public void divisionByZeroLongCheckExceptionMethod() {
         long a = new Random().nextLong();
-        long r = calculator.div(a, 0L);
-        Assert.assertEquals(r, 0L);
-        throw new Exception();
+        calculator.div(a, 0L);
     }
+
+    @Test(expectedExceptions = NumberFormatException.class, expectedExceptionsMessageRegExp = "Attempt to divide by zero")
+    public void divisionByZeroLongCheckExceptionText() {
+        long a = new Random().nextLong();
+        calculator.div(a, 0L);
+    }
+
 
     /*@Test todo "ask about this check"
     public void divisionByZeroDouble(){

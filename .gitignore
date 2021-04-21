@@ -1,0 +1,14 @@
+.settings
+.classpath
+.project
+
+# Maven
+*.log
+target/
+
+# Intellij IDEA
+.idea
+*.iws
+*.ipr
+*.iml
+out/

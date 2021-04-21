@@ -1,4 +1,4 @@
-package TestPackage;
+package com.epam.learning;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.AfterClass;
@@ -9,10 +9,11 @@ public class BaseTest {
     Calculator calculator;
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         calculator = new Calculator();
     }
 
+    // TODO: rename method to tearDown()
     @AfterClass
     public void turnDown(){
         calculator = null;

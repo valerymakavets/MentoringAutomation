@@ -1,4 +1,4 @@
-package TestPackage;
+package com.epam.learning;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
+// TODO: take a look at the comments I left in PositiveValueTest and DivisionTest classes and
+//  make the same improvement here (variable name, data provider in a separate class, formatting etc)
 public class SumCalTest extends BaseTest {
 
     @Test

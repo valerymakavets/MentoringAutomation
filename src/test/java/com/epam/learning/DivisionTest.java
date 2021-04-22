@@ -3,14 +3,11 @@ package com.epam.learning;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
 import static java.lang.Double.NaN;
 import static jdk.nashorn.internal.objects.Global.Infinity;
 
 public class DivisionTest extends BaseTest {
 
-    // TODO: Take a look at the variable names and refactor the other methods.
     @Test
     public void divisionRandomLongValues() {
         long value1 = Long.MAX_VALUE;
@@ -36,7 +33,6 @@ public class DivisionTest extends BaseTest {
         Assert.assertEquals(divisionResult, 1, "Calculation with random valid int values is incorrect");
     }
 
-    // instead of (float) you can use f (or F)
     @Test
     public void divisionRandomFloatValues() {
         float value = 3.5F;
@@ -59,7 +55,7 @@ public class DivisionTest extends BaseTest {
 
     @Test
     public void divisionZeroByZeroDotZeroDouble() {
-        double r = calculator.div(0, 0.0D);
-        Assert.assertEquals(r, NaN);
+        double result = calculator.div(0, 0.0D);
+        Assert.assertEquals(result, NaN);
     }
 }

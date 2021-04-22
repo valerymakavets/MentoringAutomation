@@ -21,7 +21,6 @@ public class CustomDataProvider {
     }
 
     @DataProvider(name = "subValuesProvider")
-    // TODO: 11/04/2021 ask about move DataProvider to BaseTest or smth like that, or use the same DataProvider for different methods, sum,sub,etc...
     public static Object[][] dataProviderForSub() {
         return new Object[][]{
                 {4, 2},

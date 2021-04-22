@@ -27,8 +27,8 @@ public class SumCalTest extends BaseTest {
     }
 
     @Test(dataProvider = "sumValuesProvider", dataProviderClass = CustomDataProvider.class)
-    public void sumSpecificDataProviderValues(double a, double b, double expectedResult) {
-        double result = calculator.sum(a, b);
+    public void sumSpecificDataProviderValues(double firstValue, double secondValue, double expectedResult) {
+        double result = calculator.sum(firstValue, secondValue);
         Assert.assertEquals(result, expectedResult, "Calculation for DataProvider values is incorrect");
     }
 

@@ -1,5 +1,5 @@
 package com.epam.learning;
-
+/*
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -58,4 +58,4 @@ public class DivisionTest extends BaseTest {
         double result = calculator.div(0, 0.0D);
         Assert.assertEquals(result, NaN);
     }
-}
+}*/
